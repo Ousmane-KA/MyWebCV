@@ -192,11 +192,6 @@
             <button class="navbar-link" data-nav-link>Resume</button>
           </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-         
-
         </ul>
 
       </nav>
@@ -253,8 +248,7 @@
                 <h4 class="h4 service-item-title">CLOUD</h4>
 
                 <p class="service-item-text">
-                  Les plateformes Cloud qui redéfinissent l’innovation numérique grâce à des solutions flexibles, sécurisées et adaptées à vos besoins.
-                </p>
+                  Déploiement d'infrastructures robustes sur des plateformes cloud telles qu'AWS et Azure, et gestion de leur maintien en conditions opérationnelles pour favoriser l'innovation et améliorer la productivité des entreprises.
               </div>
 
             </li>
@@ -307,10 +301,137 @@
 
             </li>
 
+          </ul>
 
+
+          <!-----
+          
+          Modification : 
+          -->
+
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              
+
+          </ul>
+
+
+
+          <ul class="project-list">
+
+
+
+            <li class="project-item  active" data-filter-item data-category="web development">
 
 
           </ul>
+          
+      
+
+
+        <h3 class="h3 service-title">Mes Projet</h3>
+
+        <ul class="service-list">
+
+          <li class="service-item">
+
+            <div class="service-icon-box">
+              <img src="./assets/images/Jenkins-CI-CD.png" alt="Web development icon" width="40">
+            </div>
+
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">Mise en place d’une pipeline CI/CD</h4>
+
+              <p class="service-item-text">
+                <ul style="color: beige;">
+                  <li>Pipeline CI/CD sur Azure avec Terraform pour déployer Jenkins, SonarQube et un serveur web.</li>
+                  <li>Automatisée par un webhook GitHub qui déclenche les jobs à chaque modification du code.</li>
+                  <li>Analyse de la qualité et sécurité du code via SonarQube avant chaque déploiement.</li>
+                  <li>Gestion de l'infrastructure sur Azure grâce à Jenkins, Docker et Terraform.</li>
+                  <li><a href="https://github.com/Ousmane-KA/Project-CI-CD-V1"><span style="color: brown;">Voir Projet</span></a></li>
+              </ul>
+              </p>
+            </div>
+
+          </li>
+
+          <li class="service-item">
+
+            <div class="service-icon-box">
+              <img src="./assets/images/AWX.png" alt="Web development icon" width="40">
+            </div>
+
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">Mise en place d'un système d'automatisation avec AWX</h4>
+
+              <p class="service-item-text">
+                <ul style="color: beige;">
+                  <li>AWX est une interface web open-source pour Ansible, permettant de gérer et d'automatiser des tâches d'infrastructure.</li>
+                  <li>Elle offre une gestion centralisée des projets, des inventaires et des playbooks Ansible.</li>
+                  <li>AWX simplifie l'automatisation et l'exécution de tâches à grande échelle.</li>
+                  <li><a href="https://github.com/Ousmane-KA/AWX"><span style="color: brown;">Voir Projet</span></a></li>
+                  
+              </ul>
+              </p>
+            </div>
+
+          </li>
+
+          <li class="service-item">
+
+            <div class="service-icon-box">
+              <img src="./assets/images/elastic.png" alt="Web development icon" width="40">
+            </div>
+
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">Mise en place d'un SIEM</h4>
+
+              <p class="service-item-text">
+                <ul style="color: beige;">
+                  <li>Mise en place d'un SIEM (Security Information and Event Management) avec la stack ELK (Elasticsearch, Logstash, Kibana)</li>
+                  <li>Collecter, analyser et visualiser les événements de sécurité en temps réel..</li>
+                  <li>Aider les entreprises à : Détecter les menaces, Surveiller les incidents de sécurité,  Réagir rapidement en cas d'attaque. </li>
+                  <li><a href="https://github.com/Ousmane-KA/SIEM-ELK"><span style="color: brown;">Voir Projet</span></a></li>
+                
+              </ul>
+              </p>
+            </div>
+
+          </li>
+
+          <li class="service-item">
+
+            <div class="service-icon-box">
+              <img src="./assets/images/Zammad.png" alt="Web development icon" width="40">
+            </div>
+
+            <div class="service-content-box">
+              <h4 class="h4 service-item-title">Mise en place d'un outil de gestion de tickets open-source</h4>
+
+              <p class="service-item-text">
+                <ul style="color: beige;">
+                  <li>Zammad est un outil de gestion de tickets open-source conçu pour centraliser et suivre les demandes de support clien.</li>
+                  <li>Il permet la gestion des tickets via une interface utilisateur intuitive, avec des fonctionnalités de communication par e-mail, chat et réseaux sociaux.</li>
+                  <li>Zammad facilite l'automatisation des flux de travail.</li>
+                  <li>Il améliore la gestion des réponses pour un support plus rapide et efficace.</li>
+                  <li><a href="https://github.com/Ousmane-KA/Zammad"><span style="color: brown;">Voir Projet</span></a></li>
+              </ul>
+              </p>
+            </div>
+
+          </li>
+        </ul>
+
+
+
+        <!---
+        
+        End modification 
+        --->
+
+
 
         </section>
 
@@ -524,7 +645,9 @@
 
       <!--
         - #PORTFOLIO
-      -->
+
+    --->
+     
 
       <article class="portfolio" data-page="portfolio">
 
@@ -533,6 +656,8 @@
         </header>
 
         <section class="projects">
+
+         
 
 
             <section class="projects">
@@ -572,19 +697,19 @@
             <ul class="select-list">
 
               <li class="select-item">
-                <button data-select-item>All</button>
+                <button data-select-item></button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Web design</button>
+                <button data-select-item></button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Applications</button>
+                <button data-select-item></button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Web development</button>
+                <button data-select-item></button>
               </li>
 
             </ul>
@@ -592,141 +717,21 @@
           </div>
 
         </section>
-<!---
 
-changement----
-
--->
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              
-
-          </ul>
-
-
-
-          <ul class="project-list">
-
-
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-
-
-          </ul>
-          
-      
-
-
-        <h3 class="h3 service-title">Mes Projet</h3>
-
-        <ul class="service-list">
-
-          <li class="service-item">
-
-            <div class="service-icon-box">
-              <img src="./assets/images/Jenkins-CI-CD.png" alt="Web development icon" width="40">
-            </div>
-
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Mise en place d’une pipeline CI/CD</h4>
-
-              <p class="service-item-text">
-                <ul style="color: beige;">
-                  <li>Pipeline CI/CD sur Azure avec Terraform pour déployer Jenkins, SonarQube et un serveur web.</li>
-                  <li>Automatisée par un webhook GitHub qui déclenche les jobs à chaque modification du code.</li>
-                  <li>Analyse de la qualité et sécurité du code via SonarQube avant chaque déploiement.</li>
-                  <li>Gestion de l'infrastructure sur Azure grâce à Jenkins, Docker et Terraform.</li>
-                  <li><a href="https://github.com/Ousmane-KA/Project-CI-CD-V1"><span style="color: brown;">Voir Projet</span></a></li>
-              </ul>
-              </p>
-            </div>
-
-          </li>
-
-          <li class="service-item">
-
-            <div class="service-icon-box">
-              <img src="./assets/images/AWX.png" alt="Web development icon" width="40">
-            </div>
-
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Mise en place d'un système d'automatisation avec AWX</h4>
-
-              <p class="service-item-text">
-                <ul style="color: beige;">
-                  <li>AWX est une interface web open-source pour Ansible, permettant de gérer et d'automatiser des tâches d'infrastructure.</li>
-                  <li>Elle offre une gestion centralisée des projets, des inventaires et des playbooks Ansible.</li>
-                  <li>AWX simplifie l'automatisation et l'exécution de tâches à grande échelle.</li>
-                  <li><a href="https://github.com/Ousmane-KA/AWX"><span style="color: brown;">Voir Projet</span></a></li>
-                  
-              </ul>
-              </p>
-            </div>
-
-          </li>
-
-          <li class="service-item">
-
-            <div class="service-icon-box">
-              <img src="./assets/images/elastic.png" alt="Web development icon" width="40">
-            </div>
-
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Mise en place d'un SIEM</h4>
-
-              <p class="service-item-text">
-                <ul style="color: beige;">
-                  <li>Mise en place d'un SIEM (Security Information and Event Management) avec la stack ELK (Elasticsearch, Logstash, Kibana)</li>
-                  <li>Collecter, analyser et visualiser les événements de sécurité en temps réel..</li>
-                  <li>Aider les entreprises à : Détecter les menaces, Surveiller les incidents de sécurité,  Réagir rapidement en cas d'attaque. </li>
-                  <li><a href="https://github.com/Ousmane-KA/SIEM-ELK"><span style="color: brown;">Voir Projet</span></a></li>
-                
-              </ul>
-              </p>
-            </div>
-
-          </li>
-
-          <li class="service-item">
-
-            <div class="service-icon-box">
-              <img src="./assets/images/Zammad.png" alt="Web development icon" width="40">
-            </div>
-
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">Mise en place d'un outil de gestion de tickets open-source</h4>
-
-              <p class="service-item-text">
-                <ul style="color: beige;">
-                  <li>Zammad est un outil de gestion de tickets open-source conçu pour centraliser et suivre les demandes de support clien.</li>
-                  <li>Il permet la gestion des tickets via une interface utilisateur intuitive, avec des fonctionnalités de communication par e-mail, chat et réseaux sociaux.</li>
-                  <li>Zammad facilite l'automatisation des flux de travail.</li>
-                  <li>Il améliore la gestion des réponses pour un support plus rapide et efficace.</li>
-                  <li><a href="https://github.com/Ousmane-KA/Zammad"><span style="color: brown;">Voir Projet</span></a></li>
-              </ul>
-              </p>
-            </div>
-
-          </li>
-        </ul>
 
       </section>
+
+      
 
         </section>
 
       </article>
-
+  
 
 
     </div>
 
   </main>
-
-
-
-
 
 
   <!--
