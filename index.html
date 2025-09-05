@@ -107,13 +107,13 @@
                 <a href="CV-KA-OUSMANE.pdf" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2">
                     <i class="fas fa-download"></i> Télécharger CV
                 </a>
-                <a href="#" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center gap-2">
+                <a href="https://github.com/Ousmane-KA" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center gap-2">
                     <i class="fab fa-github"></i> GitHub
                 </a>
-                <a href="#" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center gap-2">
+                <a href="https://linkedin.com/in/ka-it" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center gap-2">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-                <a href="mailto:ousmane.ka@email.com" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center gap-2">
+                <a href="mailto:ousmaneka102@email.com" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center gap-2">
                     <i class="fas fa-envelope"></i> Email
                 </a>
             </div>
@@ -355,6 +355,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                     </div>
                 </div>
@@ -604,13 +605,13 @@
                 <h3 class="text-2xl font-bold mb-4">Ousmane Ka</h3>
                 <p class="text-gray-400 mb-6">Cloud & DevSecOps Engineer</p>
                 <div class="flex justify-center space-x-6 mb-8">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="https://github.com/Ousmane-KA" target="_blank" class="text-gray-400 hover:text-white transition-colors">
                         <i class="fab fa-github text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="https://linkedin.com/in/ka-it" target="_blank" class="text-gray-400 hover:text-white transition-colors">
                         <i class="fab fa-linkedin text-xl"></i>
                     </a>
-                    <a href="mailto:ousmane.ka@email.com" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="mailto:ousmaneka102@email.com" class="text-gray-400 hover:text-white transition-colors">
                         <i class="fas fa-envelope text-xl"></i>
                     </a>
                 </div>
@@ -691,11 +692,13 @@
         
         let currentIndex = 0;
         let itemsPerView = 3; // Default for desktop
-        let totalItems = 6; // Total number of projects
+        let totalItems = 20; // Total number of projects
         
         // Update items per view based on screen size
         function updateItemsPerView() {
-            if (window.innerWidth < 768) {
+            if (window.innerWidth < 640) {
+                itemsPerView = 1; // Mobile small
+            } else if (window.innerWidth < 768) {
                 itemsPerView = 1; // Mobile
             } else if (window.innerWidth < 1024) {
                 itemsPerView = 2; // Tablet
@@ -830,10 +833,19 @@
         });
         
         // Initialize carousel
-        updateItemsPerView();
-        createDots();
-        updateCarousel();
-        startAutoSlide();
+        function initializeCarousel() {
+            updateItemsPerView();
+            createDots();
+            updateCarousel();
+            startAutoSlide();
+        }
+        
+        // Initialize when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeCarousel);
+        } else {
+            initializeCarousel();
+        }
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975a28b4e7ff3843',t:'MTc1NjI4MjkyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
