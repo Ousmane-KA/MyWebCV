@@ -4,34 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ousmane Ka - Cloud & DevSecOps Engineer</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         * {
             font-family: 'Inter', sans-serif;
         }
         
+        /* COULEUR DE FOND GRADIENT CYBER DARK */
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); /* Blue-dark to Deep-blue */
         }
         
+        /* ACCENT CYBER BLUE */
+        .cyber-blue {
+            color: #06b6d4; /* Tailwind cyan-500 */
+        }
+
+        .bg-cyber-blue {
+            background-color: #06b6d4;
+        }
+
+        /* EFFET DE BORDURE STYLÉ POUR LA PHOTO DE PROFIL (SIMULE UN NÉON) */
+        .profile-border-effect {
+            box-shadow: 0 0 0 4px #06b6d4, 0 0 15px rgba(6, 182, 212, 0.7); /* Neon effect */
+            transition: all 0.5s ease;
+        }
+        .profile-border-effect:hover {
+             box-shadow: 0 0 0 8px #06b6d4, 0 0 30px rgba(6, 182, 212, 1);
+        }
+
+        /* AMÉLIORATION DES CARTES DE PROJET */
         .card-hover {
             transition: all 0.3s ease;
+            border-left: 5px solid transparent; /* Bordure transparente par défaut */
         }
         
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #06b6d4; /* Bordure Cyan au survol */
         }
         
+        /* BADGE DE COMPÉTENCE */
         .skill-badge {
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            cursor: default;
         }
-        
         .skill-badge:hover {
             transform: scale(1.05);
+            opacity: 0.9;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.5); /* Petit effet néon/brillant */
         }
         
         .timeline-item::before {
@@ -42,45 +70,48 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #667eea;
+            background: #06b6d4; /* Couleur de la timeline assortie */
+            z-index: 10;
         }
-        
+
+        /* Mode Sombre ajusté */
         .dark .gradient-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); 
+        }
+
+        /* STYLE POUR L'IMAGE DE FOND DE LA SECTION ABOUT */
+        .about-image-bg {
+            /* REMPLACER PAR VOTRE PROPRE IMAGE DE FOND ABSTRAITE/TECH */
+            background-image: url('https://images.unsplash.com/photo-1593720216738-f90b4d4b3d7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMDAzMjh8MHwxfHNlYXJjaHwzfHxjb2RlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE2OTg3OTYwMjh8MA&ixlib=rb-4.0.3&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
         }
         
-        .animate-fade-in {
-            animation: fadeIn 0.6s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-slide-in {
-            animation: slideIn 0.8s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
+        /* Animations */
+        .animate-fade-in { animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-slide-in { animation: slideIn 0.8s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+
+        /* Cacher la scrollbar du carrousel pour un look plus épuré */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+    
+    <nav class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="text-xl font-bold text-gray-900 dark:text-white">
-                    Ousmane Ka
+                    Ousmane <span class="cyber-blue">Ka</span>
                 </div>
                 <div class="flex items-center space-x-6">
-                    <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">À propos</a>
-                    <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projets</a>
-                    <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Expérience</a>
-                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+                    <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">À propos</a>
+                    <a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">Compétences</a>
+                    <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">Projets</a>
+                    <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">Expérience</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">Contact</a>
                     <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
                         <i class="fas fa-moon dark:hidden"></i>
                         <i class="fas fa-sun hidden dark:block"></i>
@@ -90,65 +121,58 @@
         </div>
     </nav>
 
-     <!-- Hero Section -->
-    <section class="gradient-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+    <section class="gradient-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden pt-20">
         <div class="absolute inset-0 bg-black/20"></div>
         <div class="relative z-10 text-center px-4 animate-fade-in">
             <div class="mb-8">
-                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-6xl">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-4">Ousmane Ka</h1>
-                <h2 class="text-2xl md:text-3xl font-light mb-6">Cloud & DevSecOps Engineer</h2>
+                <img 
+                    src="./image/photo-profil.png" 
+                    alt="Ousmane Ka - Cloud & DevSecOps Engineer" 
+                    class="w-36 h-36 mx-auto mb-6 rounded-full object-cover profile-border-effect border-4 border-transparent"
+                >
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4">Ousmane <span class="cyber-blue">Ka</span></h1>
+                <h2 class="text-2xl md:text-3xl font-light mb-6 text-cyan-300">Cloud & DevSecOps Engineer</h2>
                 <p class="text-xl md:text-2xl mb-8 opacity-90">Cloud | Security | Automation | DevOps</p>
             </div>
             
             <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <a href="CV-KA-OUSMANE.pdf" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2">
+                <a href="CV-KA-OUSMANE.pdf" class="bg-cyan-500 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-cyan-400 transition-colors flex items-center gap-2 shadow-lg hover:shadow-cyan-500/50">
                     <i class="fas fa-download"></i> Télécharger CV
                 </a>
-                <a href="https://github.com/Ousmane-KA" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center gap-2">
+                <a href="https://github.com/Ousmane-KA" target="_blank" class="border-2 border-cyan-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-cyan-500 hover:text-gray-900 transition-colors flex items-center gap-2">
                     <i class="fab fa-github"></i> GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/ka-it" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center gap-2">
-                    <i class="fab fa-github"></i> LinkedIn
+                <a href="https://www.linkedin.com/in/ka-it" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors flex items-center gap-2">
+                    <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-                <a href="mailto:ousmaneka102@email.com" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center gap-2">
+                <a href="mailto:ousmaneka102@email.com" class="border-2 border-gray-400 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors flex items-center gap-2">
                     <i class="fas fa-envelope"></i> Email
                 </a>
             </div>
             
-            <div class="animate-bounce">
+            <div class="animate-bounce pt-8">
                 <a href="#about" class="text-white/80 hover:text-white transition-colors">
-                    <i class="fas fa-chevron-down text-2xl"></i>
+                    <i class="fas fa-chevron-down text-3xl"></i>
                 </a>
             </div>
         </div>
     </section>
 
-
-        <!-- Scroll icon -->
-        <div class="animate-bounce">
-            <a href="#about" class="text-white/80 hover:text-white transition-colors">
-                <i class="fas fa-chevron-down text-2xl"></i>
-            </a>
-        </div>
-    </div>
-</section>
-
-
-    <!-- About Section -->
     <section id="about" class="py-20 bg-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-fade-in">
                 <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">À propos de moi</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto"></div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-slide-in">
-                    <div class="w-full h-96 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-8xl">
-                        <i class="fas fa-cloud"></i>
+                    <div class="w-full h-96 rounded-2xl relative overflow-hidden shadow-2xl">
+                        <div class="about-image-bg absolute inset-0"></div> 
+                        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-8 text-center text-white">
+                            <i class="fas fa-laptop-code text-7xl text-cyan-400 mb-4"></i>
+                            <p class="text-xl font-medium">Automatisation. Sécurité. Cloud.</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -158,62 +182,122 @@
                         Spécialisé dans les technologies Cloud, DevOps et Cybersécurité, je conçois et implémente des solutions d'infrastructure sécurisées et automatisées. Mon expertise couvre l'ensemble du cycle de vie des applications, de la conception à la production.
                     </p>
                     <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                        Actuellement Apprenti Ingénieur Cloud chez Compugroup Medical, je me passionne pour l'automatisation, la sécurité cloud et l'amélioration continue des processus DevOps.
+                        Actuellement à la recherche d’un poste d’ingénieur DevOps / Cloud, je me passionne pour l'automatisation, la sécurité cloud et l'amélioration continue des processus DevOps.
                     </p>
                     
-                    <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+                    <div class="bg-cyan-50 dark:bg-gray-800/50 p-6 rounded-lg border-l-4 border-cyan-500">
                         <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Poste actuel</h4>
-                        <p class="text-blue-600 dark:text-blue-400 font-medium">Apprenti Ingénieur Cloud - Compugroup Medical</p>
+                        <p class="text-cyan-600 dark:text-cyan-400 font-medium">À la recherche d’un poste d’ingénieur DevOps / Cloud</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Mes Projets</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Compétences & Certifications</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto"></div>
             </div>
             
-            <!-- Carousel Container -->
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-terminal cyber-blue"></i> Stack Technique
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fab fa-aws mr-2"></i>AWS</span>
+                        <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-cloud mr-2"></i>Azure</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-server mr-2"></i>VMware</span>
+                        <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fab fa-docker mr-2"></i>Docker/Swarm</span>
+                        <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-cogs mr-2"></i>Kubernetes (K8s)</span>
+                        
+                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-layer-group mr-2"></i>Terraform</span>
+                        <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-robot mr-2"></i>Ansible</span>
+                        <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full font-medium skill-badge"><i class="fab fa-jenkins mr-2"></i>Jenkins</span>
+                        <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fab fa-gitlab mr-2"></i>GitLab CI</span>
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-code-branch mr-2"></i>Git / GitHub</span>
+                        
+                        <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-lock mr-2"></i>DevSecOps</span>
+                        <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-shield-alt mr-2"></i>Wazuh/SIEM</span>
+                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-chart-line mr-2"></i>Grafana/Prometheus</span>
+                        <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-heartbeat mr-2"></i>Dynatrace</span>
+
+                        <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fab fa-python mr-2"></i>Python</span>
+                        <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-4 py-2 rounded-full font-medium skill-badge"><i class="fas fa-power-off mr-2"></i>PowerShell</span>
+                        <span class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full font-medium skill-badge"><i class="fab fa-linux mr-2"></i>Linux (Debian/Ubuntu)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-certificate cyber-blue"></i> Certifications
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md border-l-4 border-yellow-500 dark:border-yellow-600 hover:shadow-xl transition-shadow">
+                            <p class="font-bold text-gray-900 dark:text-white">AWS Certified Solutions Architect – Associate</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">En cours</p>
+                            <a href="#" target="_blank" class="text-cyan-600 dark:text-cyan-400 hover:underline text-sm mt-1 block">Voir le badge</a>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md border-l-4 border-blue-500 dark:border-blue-600 hover:shadow-xl transition-shadow">
+                            <p class="font-bold text-gray-900 dark:text-white">Certification Kubernetes – LinkedIn Learning</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Mise en place et exploitation de Kubernetes</p>
+                            <a href="www.linkedin.com/in/ka-it" target="_blank" class="text-cyan-600 dark:text-cyan-400 hover:underline text-sm mt-1 block">Voir le badge</a>
+                        </div>
+                        
+                        </div>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="#" class="bg-cyan-500 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-cyan-400 transition-colors flex items-center justify-center gap-2 shadow-lg">
+                           <i class="fas fa-list-check"></i> Mes Diplômes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-900"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Mes Projets</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto"></div>
+            </div>
+            
             <div class="relative">
-                <!-- Navigation Buttons -->
-                <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
                     <i class="fas fa-chevron-left text-xl"></i>
                 </button>
-                <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
                     <i class="fas fa-chevron-right text-xl"></i>
                 </button>
                 
-                <!-- Projects Carousel -->
-                <div class="overflow-hidden mx-12">
-                    <div id="projectsCarousel" class="flex transition-transform duration-500 ease-in-out">
-                        <!-- Project 1 -->
-                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
+                <div class="overflow-x-scroll mx-12 scrollbar-hide" style="scroll-behavior: smooth;">
+                    <div id="projectsCarousel" class="flex">
+                        
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
                             <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-                                <div class="text-blue-600 text-3xl mb-4">
+                                <div class="text-cyan-600 text-3xl mb-4">
                                     <i class="fas fa-code-branch"></i>
                                 </div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Pipeline CI/CD Azure</h3>
                                 <p class="text-gray-600 dark:text-gray-300 mb-4">Pipeline automatisé avec Jenkins, SonarQube et Terraform pour le déploiement sur Azure avec analyse de sécurité intégrée.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">Jenkins</span>
-                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">Terraform</span>
-                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm">Azure</span>
+                                    <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded text-sm skill-badge">Jenkins</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">Terraform</span>
+                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm skill-badge">Azure</span>
                                 </div>
                                 <div class="flex gap-3">
-                                    <a href="https://github.com/Ousmane-KA/Project-CI-CD-V1" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+                                    <a href="https://github.com/Ousmane-KA/Project-CI-CD-V1" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
                                         <i class="fab fa-github"></i> Voir le code
                                     </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Project 2 -->
-                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
                             <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
                                 <div class="text-orange-600 text-3xl mb-4">
                                     <i class="fas fa-shield-alt"></i>
@@ -221,119 +305,100 @@
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">SIEM avec ELK Stack</h3>
                                 <p class="text-gray-600 dark:text-gray-300 mb-4">Implémentation d'une solution SIEM complète avec Docker, Elasticsearch, Logstash et Kibana pour la surveillance sécuritaire.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded text-sm">ELK</span>
-                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">Docker</span>
-                                    <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-sm">Security</span>
+                                    <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded text-sm skill-badge">ELK</span>
+                                    <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded text-sm skill-badge">Docker</span>
+                                    <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-sm skill-badge">Security</span>
                                 </div>
                                 <div class="flex gap-3">
-                                    <a href="https://github.com/Ousmane-KA/SIEM-ELK" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+                                    <a href="https://github.com/Ousmane-KA/SIEM-ELK" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
                                         <i class="fab fa-github"></i> Voir le code
                                     </a>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-purple-600 text-3xl mb-4">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement , Monitoring Dynatrace </h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Mise en place d’un projet de supervision combinant Dynatrace SaaS pour le monitoring applicatif et des VM locales dans un environnement VMware.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm skill-badge">Dynatrace</span>
+                                    <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm skill-badge">VMware</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">Monitoring</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/Ousmane-KA/Dynatrace.git" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fas fa-external-link-alt"></i> En savoir plus
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-                        <!-- Project Dynatrace -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-purple-600 text-3xl mb-4">
-            <i class="fas fa-server"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement , Monitoring Dynatrace </h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Mise en place d’un projet de supervision combinant Dynatrace SaaS pour le monitoring applicatif et des VM locales dans un environnement VMware pour l’observabilité complète.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm">Dynatrace</span>
-            <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">VMware</span>
-            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">Monitoring</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/Dynatrace.git" target="_blank" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors flex items-center gap-2">
-                <i class="fab fa-dynatrace"></i> En savoir plus
-            </a>
-        </div>
-    </div>
-</div>
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-red-600 text-3xl mb-4">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Automatisation CI/CD avec GitLab & Argo CD</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Déploiement d'une chaîne CI/CD complète avec GitLab CI, Docker, GitLab Registry et Argo CD pour assurer l'intégration, les tests et le déploiement automatisé sur Kubernetes .</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-sm skill-badge">GitLab CI</span>
+                                    <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded text-sm skill-badge">Argo CD</span>
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm skill-badge">Docker</span>
+                                    <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded text-sm skill-badge">Kubernetes</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/Ousmane-KA/Pipeline-GitLab-CI.git" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fas fa-external-link-alt"></i> En savoir plus
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-                        <!-- Project CI/CD GitLab & Argo CD -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-blue-600 text-3xl mb-4">
-            <i class="fas fa-cogs"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Automatisation CI/CD avec GitLab & Argo CD</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Déploiement d'une chaîne CI/CD complète avec GitLab CI, Docker, GitLab Registry et Argo CD pour assurer l'intégration, les tests et le déploiement automatisé sur Kubernetes .
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-sm">GitLab CI</span>
-            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">Argo CD</span>
-            <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">Docker</span>
-            <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">Kubernetes</span>
-            <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">HELM</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/Pipeline-GitLab-CI.git" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fas fa-external-link-alt"></i> En savoir plus
-            </a>
-        </div>
-    </div>
-</div>
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-green-600 text-3xl mb-4">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Mise en place de Zammad</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Déploiement de Zammad, une solution de gestion de tickets open source. Installation via Docker et configuration des canaux de communication.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">Zammad</span>
+                                    <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded text-sm skill-badge">Docker</span>
+                                    <span class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm skill-badge">Ticketing</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/Ousmane-KA/Zammad.git" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fab fa-github"></i> Voir le code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-green-600 text-3xl mb-4">
+                                    <i class="fas fa-cubes"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement Kubernetes de n8n & PostgreSQL</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Mise en place d’une plateforme d’automatisation n8n orchestrée avec Kubernetes, utilisant PostgreSQL comme base de données persistante.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded text-sm skill-badge">Kubernetes</span>
+                                    <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded text-sm skill-badge">n8n</span>
+                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm skill-badge">PostgreSQL</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/Ousmane-KA/k8s-n8n-postgresql.git" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fab fa-github"></i> Voir le code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-                        
-
-                        <!-- Project 3 -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-green-600 text-3xl mb-4">
-            <i class="fas fa-ticket-alt"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Mise en place de Zammad</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">Déploiement de Zammad, une solution de gestion de tickets open source, pour améliorer le support utilisateur. Installation via Docker et configuration des canaux de communication (email, web, etc.).</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">Zammad</span>
-            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">Docker</span>
-            <span class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">Ticketing</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/Zammad.git" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fab fa-github"></i> Voir le code
-            </a>
-        </div>
-    </div>
-</div>
-
-                        <!-- Project K8S-n8n -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-green-600 text-3xl mb-4">
-            <i class="fas fa-cubes"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement Kubernetes de n8n & PostgreSQL</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Mise en place d’une plateforme d’automatisation n8n orchestrée avec Kubernetes, utilisant PostgreSQL comme base de données persistante. Gestion des secrets, volumes et accès sécurisé .
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">Kubernetes</span>
-            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">n8n</span>
-            <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded text-sm">PostgreSQL</span>
-            <span class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">Automation</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/k8s-n8n-postgresql.git" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fab fa-github"></i> Voir le code
-            </a>
-        </div>
-    </div>
-</div>
-
-
-
-                        <!-- Project 4 -->
-                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
                             <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
                                 <div class="text-yellow-600 text-3xl mb-4">
                                     <i class="fas fa-server"></i>
@@ -341,716 +406,290 @@
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Auto-déploiement AWS</h3>
                                 <p class="text-gray-600 dark:text-gray-300 mb-4">Déploiement automatisé d'applications Flask sur AWS EC2 avec Terraform et intégration continue.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">AWS</span>
-                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">Flask</span>
-                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm">Terraform</span>
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm skill-badge">AWS</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">Flask</span>
+                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm skill-badge">Terraform</span>
                                 </div>
                                 <div class="flex gap-3">
-                                    <a href="https://github.com/Ousmane-KA/TP-EC2-AUTO-WITH-PYTHON" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+                                    <a href="https://github.com/Ousmane-KA/TP-EC2-AUTO-WITH-PYTHON" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
                                         <i class="fab fa-github"></i> Voir le code
                                     </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Project RH -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-yellow-600 text-3xl mb-4">
-            <i class="fas fa-user-cog"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Automatisation Cycle de Vie RH</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Automatisation des processus d'arrivée et de départ des employés via Microsoft Forms, SharePoint, PowerShell et Active Directory, avec envoi d’emails aux équipes IT.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">PowerShell</span>
-            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">SharePoint</span>
-            <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm">Microsoft Forms</span>
-            <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">Active Directory</span>
-            <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-sm">Exchange</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/TON-LIEN-GITHUB" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fab fa-github"></i> Voir le code
-            </a>
-        </div>
-    </div>
-</div>
-
-
-
-                        <!-- Project Teleport -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-green-600 text-3xl mb-4">
-            <i class="fas fa-shield-alt"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement de Teleport</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">Installation et configuration de Teleport pour sécuriser l’accès SSH, gérer les utilisateurs et centraliser les connexions aux serveurs. Déploiement sur Debian 11 avec gestion des certificats et intégration de nouvelles machines.</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">Teleport</span>
-            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">SSH</span>
-            <span class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">Sécurité</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/Bastion-Teleport.git" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fas fa-book"></i> Documentation
-            </a>
-        </div>
-    </div>
-</div>
-
-
-                        <!-- Project 5 -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-green-600 text-3xl mb-4">
-            <i class="fas fa-chart-line"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Monitoring avec Grafana & Prometheus</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Mise en place d'une stack de monitoring avec Prometheus, Grafana, Node Exporter et Docker pour la supervision des ressources système et des services.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">Prometheus</span>
-            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">Grafana</span>
-            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">Docker</span>
-            <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">Node Exporter</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/Grafana-Prometheus.git" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fab fa-github"></i> Voir le code
-            </a>
-        </div>
-    </div>
-</div>
-
-                        <!----Stack grafana---->
-
-                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-green-600 text-3xl mb-4">
-            <i class="fas fa-server"></i> </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Monitoring d'un Cluster Docker Swarm (P/G)</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Déploiement d'une stack de supervision complète (Prometheus, Grafana, Node Exporter, cAdvisor) pour le monitoring des nœuds et des conteneurs d'un cluster Docker Swarm.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">Docker Swarm</span>
-            <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">Prometheus</span>
-            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">Grafana</span>
-            <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm">cAdvisor</span>
-            <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">Node Exporter</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/Monitoring-Docker-Swarm.git" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fab fa-github"></i> Voir le code
-            </a>
-        </div>
-    </div>
-</div>
-
-<!-- Project 6 -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-purple-600 text-3xl mb-4">
-            <i class="fas fa-eye"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement de Wazuh SIEM</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">Mise en place de Wazuh pour la détection des menaces, l’analyse de logs et la surveillance en temps réel.</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm">Wazuh</span>
-            <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">SIEM</span>
-            
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/WAZUH.git" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fab fa-github"></i> Voir le code
-            </a>
-        </div>
-    </div>
-</div>
-
-                        <!-- Project Kubernetes -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-purple-600 text-3xl mb-4">
-            <i class="fas fa-network-wired"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Mise en place d’un cluster Kubernetes avec Minikube</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Déploiement d’un cluster Kubernetes en environnement local sur Debian à l’aide de Minikube pour l’orchestration de conteneurs. Installation, configuration, tests de déploiements, et gestion de pods.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">Kubernetes</span>
-            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">Minikube</span>
-            <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">Debian</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/CLUSTER-K8S-MINIKUBE.git" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fab fa-github"></i> Voir le code
-            </a>
-        </div>
-    </div>
-</div>
-
-
-                        
-                        <!-- Project 7 -->
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-        <div class="text-blue-600 text-3xl mb-4">
-            <i class="fas fa-server"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement de GLPI avec Docker</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Mise en place de l'application ITSM GLPI en environnement conteneurisé à l'aide de Docker, NGINX et MySQL. Configuration de volumes persistants, reverse proxy, et gestion des variables d'environnement via un fichier <code>.env</code>.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">Docker</span>
-            <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">GLPI</span>
-            <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm">MySQL</span>
-            <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-sm">NGINX</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="https://github.com/Ousmane-KA/GLPI.git" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <i class="fab fa-github"></i> Voir le code
-            </a>
-        </div>
-    </div>
-</div>
-
-                        
-                        <!-- Project 8 -->
-                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
                             <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
-                                <div class="text-orange-600 text-3xl mb-4">
+                                <div class="text-yellow-600 text-3xl mb-4">
+                                    <i class="fas fa-user-cog"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Automatisation Cycle de Vie RH</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Automatisation des processus d'arrivée et de départ des employés via Microsoft Forms, SharePoint, PowerShell et Active Directory.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm skill-badge">PowerShell</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">SharePoint</span>
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm skill-badge">Active Directory</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/TON-LIEN-GITHUB" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fab fa-github"></i> Voir le code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-green-600 text-3xl mb-4">
                                     <i class="fas fa-shield-alt"></i>
                                 </div>
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">SIEM SPLUNK</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Implémentation d'une solution SPLUNK dans un environnement HDS.</p>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement de Teleport</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Installation et configuration de Teleport pour sécuriser l’accès SSH et centraliser les connexions aux serveurs. Déploiement sur Debian 11.</p>
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded text-sm">SPLUNK</span>
-                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm">Linux</span>
-                                    <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-sm">Security</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">Teleport</span>
+                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm skill-badge">SSH</span>
+                                    <span class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm skill-badge">Sécurité</span>
                                 </div>
                                 <div class="flex gap-3">
-                                    <a href="https://github.com/Ousmane-KA/PROJET-SPLUNK" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+                                    <a href="https://github.com/Ousmane-KA/Bastion-Teleport.git" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fas fa-book"></i> Documentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-green-600 text-3xl mb-4">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Monitoring avec Grafana & Prometheus</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Mise en place d'une stack de monitoring avec Prometheus, Grafana, Node Exporter et Docker pour la supervision des ressources système et des services.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm skill-badge">Prometheus</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">Grafana</span>
+                                    <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded text-sm skill-badge">Docker</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/Ousmane-KA/Grafana-Prometheus.git" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
                                         <i class="fab fa-github"></i> Voir le code
                                     </a>
                                 </div>
                             </div>
                         </div>
 
-
-                    </div>
-                </div>
-                
-                <!-- Dots Indicator -->
-                <div class="flex justify-center mt-8 space-x-2" id="dotsContainer">
-                    <!-- Dots will be generated by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-white dark:bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Expérience Professionnelle</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-            </div>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="relative">
-                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-blue-600"></div>
-                    
-                    <!-- Experience 1 -->
-                    <div class="relative pl-12 pb-12 timeline-item">
-                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Apprenti Ingénieur Cloud</h3>
-                                <span class="text-blue-600 font-medium">2024 – Présent</span>
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-cyan-600 text-3xl mb-4">
+                                    <i class="fas fa-server"></i> </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Monitoring d'un Cluster Docker Swarm (P/G)</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Déploiement d'une stack de supervision complète (Prometheus, Grafana, Node Exporter, cAdvisor) pour le monitoring des nœuds et des conteneurs Docker Swarm.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded text-sm skill-badge">Docker Swarm</span>
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm skill-badge">Prometheus</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">Grafana</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/Ousmane-KA/Monitoring-Docker-Swarm.git" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fab fa-github"></i> Voir le code
+                                    </a>
+                                </div>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 font-medium mb-2">Compugroup Medical</p>
-                            <p class="text-gray-600 dark:text-gray-300">Développement et maintenance d'infrastructures cloud sécurisées, automatisation des déploiements et implémentation de solutions DevSecOps.</p>
                         </div>
-                    </div>
-                    
-                    <!-- Experience 2 -->
-                    <div class="relative pl-12 pb-12 timeline-item">
-                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Stagiaire Technicien IT</h3>
-                                <span class="text-blue-600 font-medium">2023</span>
+
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-purple-600 text-3xl mb-4">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement de Wazuh SIEM</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Mise en place de Wazuh pour la détection des menaces, l’analyse de logs et la surveillance en temps réel.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-sm skill-badge">Wazuh</span>
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm skill-badge">SIEM</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/Ousmane-KA/WAZUH.git" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fab fa-github"></i> Voir le code
+                                    </a>
+                                </div>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 font-medium mb-2">Groupe Meilleurtaux</p>
-                            <p class="text-gray-600 dark:text-gray-300">Support technique, maintenance des systèmes informatiques et assistance aux utilisateurs dans un environnement d'entreprise.</p>
                         </div>
+
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-indigo-600 text-3xl mb-4">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Mise en place d’un cluster Kubernetes avec Minikube</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Déploiement d’un cluster Kubernetes en environnement local sur Debian à l’aide de Minikube pour l’orchestration de conteneurs.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded text-sm skill-badge">Kubernetes</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">Minikube</span>
+                                    <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm skill-badge">Debian</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/Ousmane-KA/CLUSTER-K8S-MINIKUBE.git" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fab fa-github"></i> Voir le code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-full md:w-1/2 lg:w-1/3 px-4 py-4">
+                            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg card-hover p-6 h-full">
+                                <div class="text-cyan-600 text-3xl mb-4">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Déploiement de GLPI avec Docker</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Mise en place de l'application ITSM GLPI en environnement conteneurisé à l'aide de Docker, NGINX et MySQL.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded text-sm skill-badge">Docker</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm skill-badge">GLPI</span>
+                                    <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-sm skill-badge">NGINX</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <a href="https://github.com/Ousmane-KA/GLPI-DOCKER" target="_blank" class="bg-cyan-500 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-cyan-600 transition-colors flex items-center gap-2">
+                                        <i class="fab fa-github"></i> Voir le code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
-                    
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section class="py-20 bg-gray-50 dark:bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" class="py-20 bg-white dark:bg-gray-800"> <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Formation</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Mon Expérience</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg card-hover">
-                    <div class="text-blue-600 text-3xl mb-4">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Master Cloud & Cybersecurity</h3>
-                    <p class="text-blue-600 font-medium mb-2">2023 – 2025</p>
-                    <p class="text-gray-600 dark:text-gray-300">Formation spécialisée en technologies Cloud et Cybersécurité, avec un focus sur la sécurisation des environnements Cloud et l’automatisation.</p>
+            <div class="relative pl-6 border-l-2 border-gray-300 dark:border-gray-700">
+                <div class="mb-10 pl-8 relative timeline-item animate-fade-in">
+                    <div class="text-sm font-semibold text-cyan-600 dark:text-cyan-400">2023 - 2025</div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1">Apprenti Ingénieur DevOps/Cloud</h3>
+                    <p class="text-gray-600 dark:text-gray-300 italic">Compugroup Medical</p>
+                    <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mt-2 space-y-1">
+                        <li>Déploiement et gestion d’infrastructures Cloud hybrides (AWS, VMware, Terraform)</li>
+                        <li>Intégration, automatisation et maintien de chaînes CI/CD (GitLab CI, Ansible)</li>
+                        <li>Gestion des incidents de production sur des clusters Kubernetes. ( Kubernetes, Rancher)</li>
+                        <li>Supervision des environnements applicatifs et Cloud (Grafana, Prometheus, Splunk)</li>
+                        <li>Automatisation des tâches d'infrastructure (Terraform, Bash, Python)</li>
+                        <li>Gestion de bases de données (MySQL, PostgreSQL)</li>
+                    </ul>
                 </div>
-                
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg card-hover">
-                    <div class="text-green-600 text-3xl mb-4">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Licence Informatique</h3>
-                    <p class="text-green-600 font-medium mb-2">2020 – 2023</p>
-                    <p class="text-gray-600 dark:text-gray-300">Université de Rouen - Formation fondamentale en informatique, programmation et systèmes d'information.</p>
+                <div class="mb-10 pl-8 relative timeline-item animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-sm font-semibold text-cyan-600 dark:text-cyan-400">2023 - 2023</div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1">Stage de technicien Informatique (5 mois )</h3>
+                    <p class="text-gray-600 dark:text-gray-300 italic">Groupe Meilleurtaux</p>
+                    <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mt-2 space-y-1">
+                        <li>Administrateur des logiciels de gestion d’authentification et gestion des environnements Azure</li>
+                        <li>Gestion des incidents de niveaux 1 et 2 via Salesforce et Diabolocom</li>
+                        <li>Rédaction de documentation technique sur Confluence</li>
+                        <li>Scripting pour l'administration(PowerShell & Bash)</li>
+                    </ul>
+                </div>
+
+                <div class="pl-8 relative timeline-item animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="text-sm font-semibold text-cyan-600 dark:text-cyan-400">2025</div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1">Master Cloud & Cybersécurité</h3>
+                    <p class="text-gray-600 dark:text-gray-300 italic">École d'Ingénieurs Généraliste du Numérique - EFREI
+</p>
+                </div>
+
+                <div class="pl-8 relative timeline-item animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="text-sm font-semibold text-cyan-600 dark:text-cyan-400">2023</div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1">Licence Informatique</h3>
+                    <p class="text-gray-600 dark:text-gray-300 italic">Université de Rouen Normandie</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section class="py-20 bg-white dark:bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Certifications</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
-                <div class="bg-gradient-to-br from-orange-400 to-orange-600 p-6 rounded-xl text-white text-center card-hover">
-                    <i class="fab fa-aws text-4xl mb-3"></i>
-                    <h3 class="font-semibold">AWS</h3>
-                    <p class="text-sm opacity-90">En cours</p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-orange-500 to-red-600 p-6 rounded-xl text-white text-center card-hover">
-                    <i class="fab fa-gitlab text-4xl mb-3"></i>
-                    <h3 class="font-semibold">GitLab</h3>
-                    <p class="text-sm opacity-90">LinkedIn Learning</p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-purple-500 to-purple-700 p-6 rounded-xl text-white text-center card-hover">
-                    <i class="fas fa-cube text-4xl mb-3"></i>
-                    <h3 class="font-semibold">Terraform</h3>
-                    <p class="text-sm opacity-90">LinkedIn Learning</p>
-                </div>
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4">Contactez-moi</h2>
+            <div class="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
 
-                <div class="bg-gradient-to-br from-blue-500 to-blue-700 p-6 rounded-xl text-white text-center card-hover">
-    <i class="fas fa-network-wired text-4xl mb-3"></i>
-    <h3 class="font-semibold">Kubernetes</h3>
-    <p class="text-sm opacity-90">LinkedIn Learning</p>
-</div>
+            <p class="text-lg mb-8 opacity-90">
+                Vous avez un projet Cloud, DevOps ou Cybersécurité ? N'hésitez pas à me contacter.
+            </p>
 
-                
-                <div class="bg-gradient-to-br from-green-500 to-green-700 p-6 rounded-xl text-white text-center card-hover">
-                    <i class="fas fa-leaf text-4xl mb-3"></i>
-                    <h3 class="font-semibold">Spring Boot</h3>
-                    <p class="text-sm opacity-90">LinkedIn Learning</p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-red-500 to-red-700 p-6 rounded-xl text-white text-center card-hover">
-                    <i class="fas fa-robot text-4xl mb-3"></i>
-                    <h3 class="font-semibold">Ansible</h3>
-                    <p class="text-sm opacity-90">LinkedIn Learning</p>
-                </div>
+            <div class="space-y-4">
+                <a href="mailto:ousmaneka102@email.com" class="bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-3">
+                    <i class="fas fa-envelope text-cyan-500"></i> ousmaneka102@email.com
+                </a>
+                <a href="https://www.linkedin.com/in/ka-it" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-3">
+                    <i class="fab fa-linkedin"></i> Profil LinkedIn
+                </a>
+                <a href="https://github.com/Ousmane-KA" target="_blank" class="bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-3">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="py-20 bg-gray-50 dark:bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Compétences Techniques</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Cloud -->
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                        <i class="fas fa-cloud text-blue-600"></i> Cloud
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">AWS</span>
-                        <span class="skill-badge bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">Azure</span>
-                        <span class="skill-badge bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">VMware</span>
-                        <span class="skill-badge bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">Microsoft 365</span>
-                    </div>
-                </div>
-                
-                <!-- DevOps -->
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                        <i class="fas fa-cogs text-green-600"></i> DevOps
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-sm">Jenkins</span>
-                        <span class="skill-badge bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">GitLab CI</span>
-                        <span class="skill-badge bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">Docker</span>
-                        <span class="skill-badge bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">Terraform</span>
-                        <span class="skill-badge bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">Linux</span>
-                        <span class="skill-badge bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-sm">Ansible</span>
-                        <span class="skill-badge bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">Kubernetes</span>
-                        <span class="skill-badge bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">Windows</span>
-                    </div>
-                </div>
-                
-                <!-- Security -->
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                        <i class="fas fa-shield-alt text-red-600"></i> Sécurité
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">SonarQube</span>
-                        <span class="skill-badge bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">Centreon</span>
-                        <span class="skill-badge bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">Trivy</span>
-                        <span class="skill-badge bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">CyberWatch</span>
-                        <span class="skill-badge bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-3 py-1 rounded-full text-sm">ELK</span>
-                        <span class="skill-badge bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">Splunk</span>
-                        <span class="skill-badge bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-sm">Palo Alto</span>
-                    </div>
-                </div>
-                
-                <!-- Programming -->
-                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                        <i class="fas fa-code text-purple-600"></i> Programmation
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">Python</span>
-                        <span class="skill-badge bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-3 py-1 rounded-full text-sm">HTML & CSS</span>
-                        <span class="skill-badge bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">SPRINT BOOT</span>
-                        <span class="skill-badge bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">JAVA</span>
-                        <span class="skill-badge bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm">Bash</span>
-                        <span class="skill-badge bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-sm">Flask</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-<section id="contact" class="py-20 bg-white dark:bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Contactez-moi</h2>
-            <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-        </div>
-        
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Restons en contact</h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-8">
-                    Intéressé par une collaboration ou souhaitez discuter d'opportunités ? N'hésitez pas à me contacter !
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Email -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl text-center card-hover">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-envelope text-blue-600 text-2xl" aria-hidden="true"></i>
-                    </div>
-                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Email</h4>
-                    <a href="mailto:ousmaneka102@email.com" class="text-blue-600 dark:text-blue-400 hover:underline">
-                        ousmaneka102@email.com
-                    </a>
-                </div>
-                
-                <!-- LinkedIn -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl text-center card-hover">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fab fa-linkedin text-blue-600 text-2xl" aria-hidden="true"></i>
-                    </div>
-                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">LinkedIn</h4>
-                    <a href="https://www.linkedin.com/in/ka-it" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">
-                        www.linkedin.com/in/ka-it
-                    </a>
-                </div>
-                
-                <!-- GitHub -->
-                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl text-center card-hover">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fab fa-github text-blue-600 text-2xl" aria-hidden="true"></i>
-                    </div>
-                    <h4 class="font-semibold text-gray-900 dark:text-white mb-2">GitHub</h4>
-                    <a href="https://github.com/Ousmane-KA" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">
-                        github.com/Ousmane-KA
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold mb-4">Ousmane Ka</h3>
-                <p class="text-gray-400 mb-6">Cloud & DevSecOps Engineer</p>
-                <div class="flex justify-center space-x-6 mb-8">
-                    <a href="https://github.com/Ousmane-KA" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="www.linkedin.com/in/ka-it" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="mailto:ousmaneka102@email.com" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fas fa-envelope text-xl"></i>
-                    </a>
-                </div>
-                <p class="text-gray-400 text-sm">© 2025 Ousmane Ka. Tous droits réservés.</p>
-            </div>
+    <footer class="bg-gray-800 dark:bg-gray-950 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500">
+                &copy; 2024 Ousmane Ka. Cloud & DevSecOps Engineer.
+            </p>
         </div>
     </footer>
 
     <script>
-        // Theme toggle functionality
+        // Mode Sombre
         const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-        
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.classList.toggle('dark', currentTheme === 'dark');
-        
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            const newTheme = html.classList.contains('dark') ? 'dark' : 'light';
-            localStorage.setItem('theme', newTheme);
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
+        const isDarkMode = localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-        
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('bg-white/90', 'dark:bg-gray-900/90');
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
             } else {
-                nav.classList.remove('bg-white/90', 'dark:bg-gray-900/90');
+                localStorage.setItem('theme', 'light');
             }
         });
-        
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all sections for animation
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-        
-        // Projects Carousel Functionality
+
+        // Carrousel de Projets - Utilisation de l'API Scroll pour une meilleure compatibilité
         const carousel = document.getElementById('projectsCarousel');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const dotsContainer = document.getElementById('dotsContainer');
-        
-        let currentIndex = 0;
-        let itemsPerView = 3; // Default for desktop
-        let totalItems = 20; // Total number of projects
-        
-        // Update items per view based on screen size
-        function updateItemsPerView() {
-            if (window.innerWidth < 640) {
-                itemsPerView = 1; // Mobile small
-            } else if (window.innerWidth < 768) {
-                itemsPerView = 1; // Mobile
-            } else if (window.innerWidth < 1024) {
-                itemsPerView = 2; // Tablet
+        const container = document.querySelector('.overflow-x-scroll');
+
+        const getItemsPerView = () => {
+            if (window.innerWidth >= 1024) return 3; // lg
+            if (window.innerWidth >= 768) return 2;  // md
+            return 1;                                // sm
+        };
+
+        const scrollCarousel = (direction) => {
+            const itemsPerView = getItemsPerView();
+            // Utilise la largeur de la première carte pour déterminer la distance de défilement
+            const itemWidth = carousel.children[0].offsetWidth; 
+            const scrollDistance = itemWidth * itemsPerView;
+
+            if (direction === 'next') {
+                container.scrollBy({ left: scrollDistance, behavior: 'smooth' });
             } else {
-                itemsPerView = 3; // Desktop
+                container.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
             }
-        }
-        
-        // Calculate maximum index
-        function getMaxIndex() {
-            return Math.max(0, totalItems - itemsPerView);
-        }
-        
-        // Create dots indicator
-        function createDots() {
-            dotsContainer.innerHTML = '';
-            const maxIndex = getMaxIndex();
-            
-            for (let i = 0; i <= maxIndex; i++) {
-                const dot = document.createElement('button');
-                dot.className = `w-3 h-3 rounded-full transition-colors ${i === currentIndex ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'}`;
-                dot.addEventListener('click', () => goToSlide(i));
-                dotsContainer.appendChild(dot);
-            }
-        }
-        
-        // Update carousel position
-        function updateCarousel() {
-            const translateX = -(currentIndex * (100 / itemsPerView));
-            carousel.style.transform = `translateX(${translateX}%)`;
-            
-            // Update dots
-            const dots = dotsContainer.querySelectorAll('button');
-            dots.forEach((dot, index) => {
-                dot.className = `w-3 h-3 rounded-full transition-colors ${index === currentIndex ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'}`;
-            });
-            
-            // Update button states
-            prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-            nextBtn.style.opacity = currentIndex >= getMaxIndex() ? '0.5' : '1';
-        }
-        
-        // Go to specific slide
-        function goToSlide(index) {
-            const maxIndex = getMaxIndex();
-            currentIndex = Math.max(0, Math.min(index, maxIndex));
-            updateCarousel();
-        }
-        
-        // Next slide
-        function nextSlide() {
-            if (currentIndex < getMaxIndex()) {
-                currentIndex++;
-                updateCarousel();
-            }
-        }
-        
-        // Previous slide
-        function prevSlide() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        }
-        
-        // Event listeners
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-        
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            updateItemsPerView();
-            currentIndex = Math.min(currentIndex, getMaxIndex());
-            createDots();
-            updateCarousel();
-        });
-        
-        // Auto-slide functionality (optional)
-        let autoSlideInterval;
-        
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                if (currentIndex >= getMaxIndex()) {
-                    currentIndex = 0;
-                } else {
-                    currentIndex++;
-                }
-                updateCarousel();
-            }, 5000); // Change slide every 5 seconds
-        }
-        
-        function stopAutoSlide() {
-            clearInterval(autoSlideInterval);
-        }
-        
-        // Start auto-slide and pause on hover
-        const projectsSection = document.getElementById('projects');
-        projectsSection.addEventListener('mouseenter', stopAutoSlide);
-        projectsSection.addEventListener('mouseleave', startAutoSlide);
-        
-        // Touch/swipe support for mobile
-        let startX = 0;
-        let isDragging = false;
-        
-        carousel.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-            stopAutoSlide();
-        });
-        
-        carousel.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-        });
-        
-        carousel.addEventListener('touchend', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            
-            const endX = e.changedTouches[0].clientX;
-            const diffX = startX - endX;
-            
-            if (Math.abs(diffX) > 50) { // Minimum swipe distance
-                if (diffX > 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
-            }
-            
-            startAutoSlide();
-        });
-        
-        // Initialize carousel
-        function initializeCarousel() {
-            updateItemsPerView();
-            createDots();
-            updateCarousel();
-            startAutoSlide();
-        }
-        
-        // Initialize when DOM is loaded
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeCarousel);
-        } else {
-            initializeCarousel();
-        }
+        };
+
+        prevBtn.addEventListener('click', () => scrollCarousel('prev'));
+        nextBtn.addEventListener('click', () => scrollCarousel('next'));
+
+        // Cacher les boutons si le contenu n'est pas défilable (amélioration possible, non implémentée ici pour la simplicité)
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975a28b4e7ff3843',t:'MTc1NjI4MjkyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
